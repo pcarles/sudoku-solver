@@ -2,8 +2,12 @@
 
 int	main(int argc, char **argv)
 {
-	int grid[9][9];
-
 	if(argc == 10)
+	{
+		int dim = 9;
+		int **grid = ft_init_grid(dim);
 		ft_set_grid(grid, argv);
+		ft_print_grid(grid);
+		ft_free_grid(grid, dim);
+	}
 }

@@ -1,34 +1,27 @@
-/* return 0 if the number "nb" is in the column "y" of the grid */
 int	ft_check_column(int **grid, int y, int nb)
 {
 	int i;
 
-	i = 0;
-	while(i < 9)
+	for(i = 0; i < 9; i++)
 	{
 		if(grid[i][y] == nb)
 			return(0);
-		i++;
 	}
 	return(1);
 }
 
-/* return 0 if the number "nb" is in the line "x" of the grid */
 int	ft_check_line(int **grid, int x, int nb)
 {
 	int i;
 
-	i = 0;
-	while(i < 9)
+	for(i = 0; i < 9; i++)
 	{
 		if(grid[x][i] == nb)
 			return(0);
-		i++;
 	}
 	return(1);
 }
 
-/* return 0 if the number "nb" is in the 3x3 block of his position */
 int	ft_check_block(int **grid, int x, int y, int nb)
 {
 	x = x - (x % 3);
@@ -47,7 +40,6 @@ int	ft_check_block(int **grid, int x, int y, int nb)
 	return(1);
 }
 
-/* solver algorithm */
 int	ft_solver(int **grid, int pos)
 {
 	int x;
