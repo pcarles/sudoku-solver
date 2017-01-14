@@ -1,3 +1,5 @@
+#include "header.h"
+
 int	ft_check_column(int **grid, int y, int nb)
 {
 	int i;
