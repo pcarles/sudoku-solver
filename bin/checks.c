@@ -17,7 +17,7 @@ int	ft_check_argv(char **argv)
 			}
 
 			if(!(argv[i + 1][j] == '.' ||
-			argv[i + 1][j] >= '1' && argv[i + 1][j] <= '9'))
+			(argv[i + 1][j] >= '1' && argv[i + 1][j] <= '9')))
 				return(0);
 		}
 	}
