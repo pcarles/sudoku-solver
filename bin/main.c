@@ -16,4 +16,8 @@ int	main(int argc, char **argv)
 			ft_put_str("Erreur dans la grille\n");
 		ft_free_grid(grid, DIM);
 	}
+	else
+	{
+		ft_put_str("Il faut entrer 9 arguments\n");
+	}
 }

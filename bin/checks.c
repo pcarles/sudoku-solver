@@ -1,5 +1,29 @@
 #include "header.h"
 
+int	ft_check_argv(char **argv)
+{
+	/*BROKEN Flemme de le fix*/
+	int i;
+	int j;
+
+	for(i = 0; i < 9; i++)
+	{
+		for(j = 0; j <= 9; j++)
+		{
+			if(argv[i + 1][j] == '\0' && j != 9)
+			{
+				ft_put_str("lol");
+				return(0);
+			}
+
+			if(!(argv[i + 1][j] == '.' ||
+			argv[i + 1][j] >= '1' && argv[i + 1][j] <= '9'))
+				return(0);
+		}
+	}
+	return(1);
+}
+
 int	ft_check_grid(int **grid)
 {
 	int x;
