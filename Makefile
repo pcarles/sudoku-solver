@@ -1,13 +1,13 @@
 NAME = sudoku
-
+CC = gcc
+CFLAGS = -Werror -Wextra -Wall
 SRC = $(wildcard bin/*.c)
-
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
 
 clean:
 	rm -f $(OBJ)
