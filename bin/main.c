@@ -7,8 +7,13 @@ int	main(int argc, char **argv)
 	{
 		int **grid = ft_init_grid(DIM);
 		ft_set_grid(grid, argv);
-		ft_solve(grid, 0);
-		ft_print_grid(grid);
+		if(ft_check_grid(grid))
+		{
+			ft_solve(grid, 0);
+			ft_print_grid(grid);
+		}
+		else
+			ft_put_str("Erreur dans la grille\n");
 		ft_free_grid(grid, DIM);
 	}
 }
