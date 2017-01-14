@@ -24,23 +24,22 @@ int	ft_check_line(int **grid, int x, int nb)
 
 int	ft_check_block(int **grid, int x, int y, int nb)
 {
+	int i, j;
+
 	x = x - (x % 3);
 	y = y - (y % 3);
-	while(y < (y + 3))
+	for(i = y; i < (y + 3); i++)
 	{
-		while(x < (x + 3))
+		for(j = x; j < (x + 3); j++)
 		{
-			if(grid[x][y] == nb)
+			if(grid[j][i] == nb)
 				return(0);
-			x++;
 		}
-		x -= 3;
-		y++;
 	}
 	return(1);
 }
 
-int	ft_solver(int **grid, int pos)
+int	ft_solve(int **grid, int pos)
 {
 	int x;
 	int y;
@@ -52,7 +51,7 @@ int	ft_solver(int **grid, int pos)
 	if(pos == 81)
 		return(1);
 	if(grid[x][y] != 0)
-		return(ft_solver(grid, pos + 1));
+		return(ft_solve(grid, pos + 1));
 	while(i <= 9)
 	{
 		if(ft_check_column(grid, y, i) &&
@@ -60,7 +59,7 @@ int	ft_solver(int **grid, int pos)
 		ft_check_block(grid, x, y, i))
 		{
 			grid[x][y] = i;
-			if(ft_solver(grid, pos + 1))
+			if(ft_solve(grid, pos + 1))
 				return(1);
 		}
 		i++;

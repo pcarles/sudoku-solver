@@ -5,6 +5,15 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+void	ft_put_str(char *str)
+{
+	int i = 0;
+
+	while(str[i])
+		i++;
+	write(1, str, i);
+}
+
 int	**ft_init_grid(int dim)
 {
 	int i;
@@ -58,8 +67,15 @@ void	ft_print_grid(int **grid)
 		{
 			ft_putchar(grid[x][y] + '0');
 			if(y != 8)
-				ft_putchar(' ');
+			{
+				if(y == 2 || y == 5)
+					ft_put_str(" | ");
+				else
+					ft_putchar(' ');
+			}
 		}
 		ft_putchar('\n');
+		if(x == 2 || x == 5)
+			ft_put_str("---------------------\n");
 	}
 }
