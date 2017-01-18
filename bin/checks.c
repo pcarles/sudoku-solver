@@ -3,8 +3,7 @@
 int	ft_check_argv(char **argv)
 {
 	/*BROKEN Flemme de le fix*/
-	int i;
-	int j;
+	int i, j;
 
 	for(i = 0; i < 9; i++)
 	{
@@ -26,9 +25,7 @@ int	ft_check_argv(char **argv)
 
 int	ft_check_grid(int **grid)
 {
-	int x;
-	int y;
-	int nb;
+	int x, y, nb;
 
 	for(x = 0; x < 9; x++)
 	{
