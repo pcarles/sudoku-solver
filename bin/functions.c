@@ -7,8 +7,9 @@ void	ft_putchar(char c)
 
 void	ft_put_str(char *str)
 {
-	int i = 0;
+	int i;
 
+	i = 0;
 	while(str[i])
 		i++;
 	write(1, str, i);
@@ -16,12 +17,11 @@ void	ft_put_str(char *str)
 
 int	**ft_init_grid(int dim)
 {
-	int i;
-	int **grid = malloc(sizeof(*grid) * dim);
+	int i, **grid;
 
+	grid = malloc(sizeof(*grid) * dim);
 	for(i = 0; i < dim; i++)
 		grid[i] = malloc(sizeof(**grid) * dim);
-
 	return(grid);
 }
 
@@ -36,10 +36,9 @@ void	ft_free_grid(int **grid, int dim)
 	free(grid);
 }
 
-int	ft_set_grid(int **grid, char **argv)
+void	ft_set_grid(int **grid, char **argv)
 {
-	int x;
-	int y;
+	int x, y;
 
 	for(x = 0; x < 9; x++)
 	{
@@ -47,19 +46,15 @@ int	ft_set_grid(int **grid, char **argv)
 		{
 			if(argv[x + 1][y] == '.')
 				grid[x][y] = 0;
-			else if(argv[x + 1][y] >= '1' && argv[x + 1][y] <= '9')
-				grid[x][y] = argv[x + 1][y] - '0';
 			else
-				return(0);
+				grid[x][y] = argv[x + 1][y] - '0';
 		}
 	}
-	return(1);
 }
 
 void	ft_print_grid(int **grid)
 {
-	int x;
-	int y;
+	int x, y;
 
 	for(x = 0; x < 9; x++)
 	{

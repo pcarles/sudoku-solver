@@ -42,9 +42,7 @@ int	ft_check_block(int **grid, int *x, int *y, int *nb)
 
 int	ft_solve(int **grid, int pos)
 {
-	int x;
-	int y;
-	int i;
+	int x, y, i;
 
 	x = pos / 9;
 	y = pos % 9;
