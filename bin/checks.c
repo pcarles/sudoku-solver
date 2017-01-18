@@ -38,9 +38,9 @@ int	ft_check_grid(int **grid)
 			{
 				nb = grid[x][y];
 				grid[x][y] = 0;
-				if(!(ft_check_column(grid, y, nb) &&
-				ft_check_line(grid, x, nb) &&
-				ft_check_block(grid, x, y, nb)))
+				if(!(ft_check_column(grid, &y, &nb) &&
+				ft_check_line(grid, &x, &nb) &&
+				ft_check_block(grid, &x, &y, &nb)))
 				{
 					grid[x][y] = nb;
 					return(0);
