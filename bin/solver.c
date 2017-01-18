@@ -46,14 +46,13 @@ int	ft_solve(int **grid, int pos)
 	int y;
 	int i;
 
-	i = 1;
 	x = pos / 9;
 	y = pos % 9;
 	if(pos == 81)
 		return(1);
 	if(grid[x][y] != 0)
 		return(ft_solve(grid, pos + 1));
-	while(i <= 9)
+	for(i = 1; i <= 9; i++)
 	{
 		if(ft_check_column(grid, &y, &i) &&
 		ft_check_line(grid, &x , &i) &&
@@ -63,7 +62,6 @@ int	ft_solve(int **grid, int pos)
 			if(ft_solve(grid, pos + 1))
 				return(1);
 		}
-		i++;
 	}
 	grid[x][y] = 0;
 	return(0);
