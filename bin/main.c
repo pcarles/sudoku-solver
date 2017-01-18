@@ -15,11 +15,11 @@ int	main(int argc, char **argv)
 			ft_print_grid(grid);
 		}
 		else
-			ft_put_str("Seulement des points et des chiffres\n");
+			ft_putstr("Seulement des points et des chiffres\n");
 	}
 	else
 	{
-		ft_put_str("Il faut entrer 9 lignes\n");
+		ft_putstr("Il faut entrer 9 lignes\n");
 	}
 	ft_free_grid(grid, DIM);
 	return(0);

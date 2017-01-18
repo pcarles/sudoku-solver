@@ -3,10 +3,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 void	ft_putchar(char c);
-void	ft_put_str(char *str);
+void	ft_putstr(char *str);
 int**	ft_init_grid(int dim);
 void	ft_free_grid(int **grid, int dim);
 void	ft_set_grid(int **grid, char **argv);

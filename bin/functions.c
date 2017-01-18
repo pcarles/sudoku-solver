@@ -5,7 +5,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_put_str(char *str)
+void	ft_putstr(char *str)
 {
 	int i;
 
@@ -64,13 +64,13 @@ void	ft_print_grid(int **grid)
 			if(y != 8)
 			{
 				if(y == 2 || y == 5)
-					ft_put_str(" | ");
+					ft_putstr(" | ");
 				else
 					ft_putchar(' ');
 			}
 		}
 		ft_putchar('\n');
 		if(x == 2 || x == 5)
-			ft_put_str("---------------------\n");
+			ft_putstr("---------------------\n");
 	}
 }
