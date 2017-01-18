@@ -1,15 +1,15 @@
 NAME = sudoku
 CC = gcc
 FLAGS = -Werror -Wextra -Wall
-SRC = $(wildcard bin/*.c)
-OBJ = $(SRC:.c=.o)
+SRC = $(wildcard src/*.c)
+OBJ = $(patsubst src/%.c, bin/%.o, $(SRC))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) -o $@ $^
 
-%.o: %.c
+bin/%.o: src/%.c
 	$(CC) -o $@ -c $< $(FLAGS)
 
 .PHONY: clean fclean re
