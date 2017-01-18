@@ -17,7 +17,7 @@ bin/%.o: src/%.c $(HDR)
 .PHONY: clean fclean re
 
 clean:
-	@rm -f $(OBJ)
+	@rm -rf bin/
 
 fclean: clean
 	@rm -f $(NAME)
