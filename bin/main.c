@@ -3,21 +3,24 @@
 
 int	main(int argc, char **argv)
 {
+	int **grid;
+
+	grid = ft_init_grid(DIM);
 	if(argc == 10)
 	{
-		int **grid = ft_init_grid(DIM);
-		ft_set_grid(grid, argv);
-		if(ft_check_grid(grid))
+		if(ft_check_argv(argv))
 		{
+			ft_set_grid(grid, argv);
 			ft_solve(grid, 0);
 			ft_print_grid(grid);
 		}
 		else
-			ft_put_str("Erreur dans la grille\n");
-		ft_free_grid(grid, DIM);
+			ft_put_str("Seulement des points et des chiffres\n");
 	}
 	else
 	{
-		ft_put_str("Il faut entrer 9 arguments\n");
+		ft_put_str("Il faut entrer 9 lignes\n");
 	}
+	ft_free_grid(grid, DIM);
+	return(0);
 }

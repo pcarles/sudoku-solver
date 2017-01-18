@@ -2,23 +2,22 @@
 
 int	ft_check_argv(char **argv)
 {
-	/*BROKEN Flemme de le fix*/
 	int i, j;
 
-	for(i = 0; i < 9; i++)
+	j = 0;
+	for(i = 1; i < 10; i++)
 	{
-		for(j = 0; j <= 9; j++)
+		while(argv[i][j] && j < 10)
 		{
-			if(argv[i + 1][j] == '\0' && j != 9)
-			{
-				ft_put_str("lol");
+			if(!(argv[i][j] == '.' ||
+			(argv[i][j] >= '1' && 
+			argv[i][j] <= '9')))
 				return(0);
-			}
-
-			if(!(argv[i + 1][j] == '.' ||
-			(argv[i + 1][j] >= '1' && argv[i + 1][j] <= '9')))
-				return(0);
+			j++;
 		}
+		if(j != 9)
+			return(0);
+		j = 0;
 	}
 	return(1);
 }
