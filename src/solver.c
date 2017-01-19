@@ -31,7 +31,6 @@ int	ft_check_block(int **grid, int *x, int *y, int *nb)
 	for(i = (*y) - ((*y) % 3); i < (*y) - ((*y) % 3) + 3; i++)
 	{
 		for(j = (*x) - ((*x) % 3); j < (*x) - ((*x) % 3) + 3; j++)
-
 		{
 			if(grid[j][i] == (*nb))
 				return(0);
