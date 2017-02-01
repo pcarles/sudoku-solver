@@ -1,6 +1,22 @@
+/**
+ * \file main.c
+ * \brief Sudoku solver.
+ * \author Pierre Carles
+ *
+ * A program who solve sudoku from partial fill grid.
+ */
+
 #include "header.h"
 #define DIM 9
 
+/**
+ * \fn int main(int argc, char **argv)
+ * \brief Program's entry
+ *
+ * \param argc (argument count) Number of strings pointed by argv
+ * \param argv (argument vector) Arguments passed to the program
+ * \return 0 - Normal stop of the program.
+ */
 int	main(int argc, char **argv)
 {
 	int **grid;

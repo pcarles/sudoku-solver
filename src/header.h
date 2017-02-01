@@ -6,8 +6,8 @@
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
-int**	ft_init_grid(int dim);
-void	ft_free_grid(int **grid, int dim);
+int**	ft_init_grid(int size);
+void	ft_free_grid(int **grid, int size);
 void	ft_set_grid(int **grid, char **argv);
 void	ft_print_grid(int **grid);
 int	ft_check_argv(char **argv);
