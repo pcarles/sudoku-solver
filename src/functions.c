@@ -103,6 +103,23 @@ void	ft_set_grid(int **grid, char **argv)
 	}
 }
 
+void	ft_pyset_grid(int **grid, const char *str)
+{
+	int x, y;
+
+	for(x = 0; x < 9; x++)
+	{
+		for(y = 0; y < 9; y++)
+		{
+			if(str[(9 * x) + y] == '.')
+				grid[x][y] = 0;
+			else
+				grid[x][y] = str[(9 * x) + y] - '0';
+
+		}
+	}
+}
+
 /**
  * \fn void ft_print_grid(int **grid)
  * \brief Display the grid.

@@ -9,6 +9,7 @@ void	ft_putstr(char *str);
 int**	ft_init_grid(int size);
 void	ft_free_grid(int **grid, int size);
 void	ft_set_grid(int **grid, char **argv);
+void	ft_pyset_grid(int **grid, const char *str);
 void	ft_print_grid(int **grid);
 int	ft_check_argv(char **argv);
 int	ft_check_grid(int **grid);
