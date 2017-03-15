@@ -1,3 +1,4 @@
 sudoku
+bin/
 *.swp
 *.o
