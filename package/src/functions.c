@@ -87,7 +87,7 @@ void	ft_free_grid(int **grid, int size)
  *
  * Set the input values contained in str correctly in the grid.
  */
-void	ft_set_grid(int **grid, const char *str)
+void	ft_set_grid(int **grid, char *str)
 {
 	int x, y;
 

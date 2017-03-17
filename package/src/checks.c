@@ -5,11 +5,11 @@ int	ft_check_str(char *str)
 	int i;
 
 	i = 0;
-	while(argv[i])
+	while(str[i])
 	{
-		if(!(argv[i] == '.' ||
-		(argv[i] >= '1' && 
-		argv[i] <= '9')))
+		if(!(str[i] == '.' ||
+		(str[i] >= '1' && 
+		str[i] <= '9')))
 			return(0);
 		i++;
 	}

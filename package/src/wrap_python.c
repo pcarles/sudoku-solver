@@ -3,7 +3,7 @@
 
 static	PyObject* py_solve(PyObject* self, PyObject* args)
 {
-	const char *numbers;
+	char *numbers;
 	if(!PyArg_ParseTuple(args, "s", &numbers))
 		return NULL;
 
@@ -11,7 +11,7 @@ static	PyObject* py_solve(PyObject* self, PyObject* args)
 	PyObject *res = PyList_New(9);
 
 	grid = ft_init_grid(9);
-	ft_check_str(grid, numbers);
+	ft_check_str(numbers);
 	ft_set_grid(grid, numbers);
 	ft_check_grid(grid);
 	for(i = 0; i < 9; i++)
