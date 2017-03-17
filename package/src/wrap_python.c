@@ -7,14 +7,17 @@ static	PyObject* py_solve(PyObject* self, PyObject* args)
 	if(!PyArg_ParseTuple(args, "s", &numbers))
 		return NULL;
 
-	int **grid;
-	grid = ft_init_grid(9);
-	ft_pyset_grid(grid, numbers);
+	int **grid, i, j;
 	PyObject *res = PyList_New(9);
-	for(int i = 0; i < 9; i++)
+
+	grid = ft_init_grid(9);
+	ft_check_str(grid, numbers);
+	ft_set_grid(grid, numbers);
+	ft_check_grid(grid);
+	for(i = 0; i < 9; i++)
 	{
 		PyObject *ligne = PyList_New(9);
-		for(int j = 0; j < 9; j++)
+		for(j = 0; j < 9; j++)
 		{
 			PyList_SET_ITEM(ligne, j, Py_BuildValue("i", grid[i][j]));
 		}
@@ -31,7 +34,7 @@ static	PyMethodDef SolverMethods[] = {
 
 static struct PyModuleDef solvermodule = {
 	PyModuleDef_HEAD_INIT,
-	"wrap_python",
+	"solvermodule",
 	NULL,
 	-1,
 	SolverMethods

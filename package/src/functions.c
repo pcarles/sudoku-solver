@@ -79,31 +79,15 @@ void	ft_free_grid(int **grid, int size)
 }
 
 /**
- * \fn void ft_set_grid(int **grid, char **argv)
- * \brief Set the numbers in the grid using argv.
+ * \fn void ft_set_grid(int **grid, char *str)
+ * \brief Set the numbers in the grid using a string.
  *
  * \param grid The grid to be set.
- * \param argv The input arguments.
+ * \param str The input arguments.
  *
- * Set the input values contained in argv correctly in the grid.
+ * Set the input values contained in str correctly in the grid.
  */
-void	ft_set_grid(int **grid, char **argv)
-{
-	int x, y;
-
-	for(x = 0; x < 9; x++)
-	{
-		for(y = 0; y < 9; y++)
-		{
-			if(argv[x + 1][y] == '.')
-				grid[x][y] = 0;
-			else
-				grid[x][y] = argv[x + 1][y] - '0';
-		}
-	}
-}
-
-void	ft_pyset_grid(int **grid, const char *str)
+void	ft_set_grid(int **grid, const char *str)
 {
 	int x, y;
 

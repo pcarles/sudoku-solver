@@ -1,24 +1,20 @@
 #include "header.h"
 
-int	ft_check_argv(char **argv)
+int	ft_check_str(char *str)
 {
-	int i, j;
+	int i;
 
-	j = 0;
-	for(i = 1; i < 10; i++)
+	i = 0;
+	while(argv[i])
 	{
-		while(argv[i][j] && j < 10)
-		{
-			if(!(argv[i][j] == '.' ||
-			(argv[i][j] >= '1' && 
-			argv[i][j] <= '9')))
-				return(0);
-			j++;
-		}
-		if(j != 9)
+		if(!(argv[i] == '.' ||
+		(argv[i] >= '1' && 
+		argv[i] <= '9')))
 			return(0);
-		j = 0;
+		i++;
 	}
+	if(i != 81)
+		return(0);
 	return(1);
 }
 
