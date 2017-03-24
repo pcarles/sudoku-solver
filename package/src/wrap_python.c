@@ -1,6 +1,17 @@
 #include <Python.h>
 #include "header.h"
 
+static	PyObject* py_check(PyObject* self, PyObject* args)
+{
+	char *numbers;
+	if(!PyArg_ParseTuple(args, "s", &numbers))
+		return NULL;
+	
+	if(ft_check_str(numbers))
+		Py_RETURN_TRUE;
+	Py_RETURN_FALSE;
+}
+
 static	PyObject* py_solve(PyObject* self, PyObject* args)
 {
 	char *numbers;
@@ -11,9 +22,10 @@ static	PyObject* py_solve(PyObject* self, PyObject* args)
 	PyObject *res = PyList_New(9);
 
 	grid = ft_init_grid(9);
-	ft_check_str(numbers);
 	ft_set_grid(grid, numbers);
-	ft_check_grid(grid);
+	if(!ft_check_grid(grid))
+		Py_RETURN_FALSE;
+	
 	for(i = 0; i < 9; i++)
 	{
 		PyObject *ligne = PyList_New(9);
@@ -29,6 +41,7 @@ static	PyObject* py_solve(PyObject* self, PyObject* args)
 
 static	PyMethodDef SolverMethods[] = {
 	{"ft_solve", py_solve, METH_VARARGS, "Solve"},
+	{"ft_check", py_check, METH_VARARGS, "Check"},
 	{NULL, NULL, 0, NULL}
 };
 
