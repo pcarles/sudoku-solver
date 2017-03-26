@@ -15,25 +15,26 @@ static	PyObject* py_check(PyObject* self, PyObject* args)
 static	PyObject* py_solve(PyObject* self, PyObject* args)
 {
 	char *numbers;
-	if(!PyArg_ParseTuple(args, "s", &numbers))
-		return NULL;
-
 	int **grid, i, j;
 	PyObject *res = PyList_New(9);
 
+	if(!PyArg_ParseTuple(args, "s", &numbers))
+		return NULL;
+
 	grid = ft_init_grid(9);
 	ft_set_grid(grid, numbers);
+
 	if(!ft_check_grid(grid))
 		Py_RETURN_FALSE;
 	
 	for(i = 0; i < 9; i++)
 	{
-		PyObject *ligne = PyList_New(9);
+		PyObject *line = PyList_New(9);
 		for(j = 0; j < 9; j++)
 		{
-			PyList_SET_ITEM(ligne, j, Py_BuildValue("i", grid[i][j]));
+			PyList_SET_ITEM(line, j, Py_BuildValue("i", grid[i][j]));
 		}
-		PyList_SET_ITEM(res, i, ligne);
+		PyList_SET_ITEM(res, i, line);
 	}
 	ft_free_grid(grid, 9);
 	return res;
