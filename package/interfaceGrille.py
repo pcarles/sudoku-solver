@@ -1,6 +1,7 @@
-#!/usr/bin/env python3.5.2
+#!/usr/bin/python3.5
 # -*- coding: utf-8 -*-
 from tkinter import *
+from bin.solvermodule import *
 
 fenetre = Tk()
 
