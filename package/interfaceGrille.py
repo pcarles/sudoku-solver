@@ -1,7 +1,24 @@
 #!/usr/bin/python3.5
 # -*- coding: utf-8 -*-
+'''
+Name:
+Authors:
+'''
+
+#-----Modules-----
+
 from tkinter import *
 from bin.solvermodule import *
+
+#----Functions----
+
+def afficher_nombre(grid):
+        for i in range(9):
+                for j in range(9):
+                        canvas.create_image(4 + 35*i + 2*(i//3), 4 + 35*j + 2*(j//3), anchor = NW, image=images[grid[i][j]])
+                        canvas.pack()
+
+#-----Program-----
 
 fenetre = Tk()
 
@@ -14,12 +31,6 @@ for i in range(1, 10):
 	
  
 canvas = Canvas(fenetre, bg="white", height=320, width=320)
-
-def afficher_nombre(grid):
-        for i in range(9):
-                for j in range(9):
-                        canvas.create_image(4 + 35*i + 2*(i//3), 4 + 35*j + 2*(j//3), anchor = NW, image=images[grid[i][j]])
-                        canvas.pack()
 
 ligne = 2
 colone = 2
