@@ -8,52 +8,42 @@ Auteur: ELVIRA
 #----Modules----
 
 from tkinter import *
+from bin.solvermodule import *
 
 #----Fonctions----
 
-def afficher_nombre(grid):
+def displayGrid(grid):
     """
-    afficher_nombre(grid):
+    displayGrid(grid):
     ======================
     Affiche les chiffres sur la grille en fonction de la grille
 
     @param grid: la grille à prendre
-    @type grid: str
+    @type grid: list
     """
     for i in range(9):
                 for j in range(9):
-                        canvas.create_image(4 + 35*i + 2*(i//3), 4 + 35*j + 2*(j//3), anchor = NW, image=images[grid[i][j]])
+                        canvas.create_image(4 + 35*i + 2*(i//3), 4 + 35*j + 2*(j//3), anchor = NW, image=numbersList[grid[i][j]])
                         canvas.pack()
 
 #----Variables globales----
 
-grid = "img/grid/grid.png"
-
 #----Programme principal----
 
-fenetre = Tk()
+root = Tk()
 
-grid = ft_solve("1..........3.....7...4................7........3..9..............................")
+result = ft_solve("8.6.73..1.1.8....2.4.2...7.5......1...75.13...6......5.5...2.4.2....8.9.3..65.8..")
 
-grille = PhotoImage(file=grid)
-images = [0]
-for i in range(1, 10):
-        images.append(PhotoImage(file=str(i)+".png"))
+grid = PhotoImage(file="img/grid/grid.png")
 
+numbersList = 10 * [0]
+for i in range(10):
+        numbersList[i] = PhotoImage(file="img/numbers/"+str(i)+".png")
 
-canvas = Canvas(fenetre, bg="white", height=320, width=320)
-
-
-
-ligne = 2
-colone = 2
-while colone <= 216:
-	while ligne <= 216:
-		canvas.create_image(ligne, colone, anchor=NW, image=grille)
-		ligne = ligne + 107
-	colone = colone + 107
-	ligne = 2
+canvas = Canvas(root, bg="white", height=320, width=320)
 
 canvas.pack()
-afficher_nombre(grid)
-fenetre.mainloop()
+
+displayGrid(result)
+root.mainloop()
+
