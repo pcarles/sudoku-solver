@@ -11,16 +11,8 @@ from tkinter import *
 
 #----Fonctions----
 
-def enterNumber(pos, result):
-   number = StringVar()
-   entry = Entry(root, textvariable=number, width=5).pack(side=LEFT, padx=5, pady=5)
-   validate = Button(root, text="valider")
-   validate.bind('<Return>', putNumber(str(number), pos, result))
-   validate.pack()
-
-def putNumber(number, pos, result):
-   result[pos] = number
-   pos += 1
+def putNumber():
+   result[pos] = number.get()
    print(result)
 
 #----Variables globales----
@@ -28,12 +20,16 @@ def putNumber(number, pos, result):
 #----Programme principal----
 
 root = Tk()
-
-numbers = 81 * [0]
+pos = 0
+number = StringVar()
+result = 81 * [0]
 
 canvas = Canvas(root, bg="white", height=320, width=320)
 canvas.pack(side=TOP, padx=5, pady = 5)
-enterNumber(0, numbers)
+
+entry = Entry(root, textvariable=number, width=5).pack(side=LEFT, padx=5, pady=5)
+
+validate = Button(root, text="valider", command=putNumber).pack()
 
 root.mainloop()
 
