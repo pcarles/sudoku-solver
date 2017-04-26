@@ -27,6 +27,8 @@ static	PyObject* py_solve(PyObject* self, PyObject* args)
 	if(!ft_check_grid(grid))
 		Py_RETURN_FALSE;
 	
+	ft_solve(grid, 1);
+	
 	for(i = 0; i < 9; i++)
 	{
 		PyObject *line = PyList_New(9);
