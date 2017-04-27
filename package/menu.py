@@ -3,7 +3,7 @@
 """
 menu.py
 Rôle: Créer un menu pour le solveur de sudoku
-NomAuteur:PIMENTEL
+NomAuteur:
 """
 
 #----Modules----
