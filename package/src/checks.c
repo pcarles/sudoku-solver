@@ -1,3 +1,11 @@
+/**
+ * \file checks.c
+ * \brief Check functions
+ * \author Pierre Carles
+ *
+ * Declaration of all the check functions.
+ */
+
 #include "header.h"
 
 int	ft_check_str(char *str)
