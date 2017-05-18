@@ -1,5 +1,5 @@
 /**
- * \file functions.c
+ * \file grid.c
  * \brief Declaration of functions
  * \author Pierre Carles
  *
