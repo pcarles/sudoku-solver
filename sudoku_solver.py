@@ -99,9 +99,6 @@ class SetGrid(tk.Frame):
         for i in range(9):
             for j in range(9):
                 bufferString += str(self.controller.numberGrid[i][j])
-        print(bufferString)
-        print(len(bufferString))
-        print(sm.ft_solve(bufferString))
         self.controller.numberGrid = sm.ft_solve(bufferString)
         self.controller.displayGrid(self.canvas)
 
