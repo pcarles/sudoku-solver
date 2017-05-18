@@ -36,6 +36,12 @@ class SudokuSolver(tk.Tk):
         self.showFrame("Menu")
 
     def loadNumbersImg(self):
+       """
+       Charge images des numéros (1-9, plus la case vide).
+
+       @return: numberList
+       @rtype: list
+       """
         numberList = 10 * [0]
         for i in range(10):
             numberList[i] = tk.PhotoImage(file="package/img/"+str(i)+".png")
@@ -43,11 +49,23 @@ class SudokuSolver(tk.Tk):
         return numberList
 
     def displayGrid(self, canvas):
+        """
+        Affiche le contenu de numberGrid graphiquement.
+
+        @param canvas: le canvas sur lequel afficher la grille
+        @type param canvas: tk.Canvas()
+        """
         for i in range(9):
             for j in range(9):
                 canvas.create_image(35 * i, 35 * j, anchor="nw", image=self.numbersImg[self.numberGrid[i][j]])
 
     def showFrame(self, page_name):
+        """
+        Affiche la page demandée.
+
+        @param page_name: le nom de la page à afficher
+        @type param page_name: str
+        """
         frame = self.frames[page_name]
         frame.tkraise()
 
@@ -88,6 +106,12 @@ class SetGrid(tk.Frame):
         self.canvas.bind("<Button-1>", self.setNumber)
 
     def setNumber(self, evt):
+        """
+        Met le numero choisi dans la case choisie.
+
+        @param evt: evt.x et evt.y la position de la souris (case choisie)
+        @type param evt:
+        """
         x = int(evt.x / 35)
         y = int(evt.y / 35)
 
@@ -95,6 +119,9 @@ class SetGrid(tk.Frame):
         self.controller.displayGrid(self.canvas)
 
     def solve(self):
+        """
+        Resoud le sudoku et affiche la grille resolue.
+        """
         bufferString = ""
         for i in range(9):
             for j in range(9):
@@ -104,6 +131,9 @@ class SetGrid(tk.Frame):
             self.controller.displayGrid(self.canvas)
 
     def reset(self):
+        """
+        Remet toutes les valeurs de numberGrid à 0 et met à jour l'affichage.
+        """
         for i in range(9):
             for j in range(9):
                 self.controller.numberGrid[i][j] = 0
