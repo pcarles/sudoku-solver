@@ -15,8 +15,8 @@ int	ft_check_str(char *str)
 	i = 0;
 	while(str[i])
 	{
-		if(!(str[i] == '.' ||
-		(str[i] >= '1' && 
+		if(!(str[i] == '0' ||
+		(str[i] >= '1' &&
 		str[i] <= '9')))
 			return(0);
 		i++;

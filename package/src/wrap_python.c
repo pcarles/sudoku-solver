@@ -4,12 +4,17 @@
 static	PyObject* py_check(PyObject* self, PyObject* args)
 {
 	char *numbers;
+	int **grid;
+
 	if(!PyArg_ParseTuple(args, "s", &numbers))
 		return NULL;
 
-	if(ft_check_str(numbers))
-		Py_RETURN_TRUE;
-	Py_RETURN_FALSE;
+	grid = ft_init_grid(9);
+	ft_set_grid(grid, numbers);
+
+	if(!ft_check_grid(grid))
+		Py_RETURN_FALSE;
+	Py_RETURN_TRUE;
 }
 
 static	PyObject* py_solve(PyObject* self, PyObject* args)
@@ -23,9 +28,6 @@ static	PyObject* py_solve(PyObject* self, PyObject* args)
 
 	grid = ft_init_grid(9);
 	ft_set_grid(grid, numbers);
-
-	if(!ft_check_grid(grid))
-		Py_RETURN_FALSE;
 
 	ft_solve(grid, 0);
 
