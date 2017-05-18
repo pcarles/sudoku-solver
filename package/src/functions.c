@@ -52,7 +52,7 @@ void	ft_set_grid(int **grid, char *str)
 	{
 		for(y = 0; y < 9; y++)
 		{
-			if(str[(9 * x) + y] == '.')
+			if(str[(9 * x) + y] == '0')
 				grid[x][y] = 0;
 			else
 				grid[x][y] = str[(9 * x) + y] - '0';

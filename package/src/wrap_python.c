@@ -6,7 +6,7 @@ static	PyObject* py_check(PyObject* self, PyObject* args)
 	char *numbers;
 	if(!PyArg_ParseTuple(args, "s", &numbers))
 		return NULL;
-	
+
 	if(ft_check_str(numbers))
 		Py_RETURN_TRUE;
 	Py_RETURN_FALSE;
@@ -26,9 +26,9 @@ static	PyObject* py_solve(PyObject* self, PyObject* args)
 
 	if(!ft_check_grid(grid))
 		Py_RETURN_FALSE;
-	
-	ft_solve(grid, 1);
-	
+
+	ft_solve(grid, 0);
+
 	for(i = 0; i < 9; i++)
 	{
 		PyObject *line = PyList_New(9);
@@ -60,4 +60,3 @@ PyMODINIT_FUNC PyInit_solvermodule(void)
 {
 	return PyModule_Create(&solvermodule);
 }
-
