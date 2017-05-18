@@ -8,21 +8,6 @@
 
 #include "header.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while(str[i])
-		i++;
-	write(1, str, i);
-}
-
 int	**ft_init_grid(int size)
 {
 	int i, **grid;
@@ -58,28 +43,5 @@ void	ft_set_grid(int **grid, char *str)
 				grid[x][y] = str[(9 * x) + y] - '0';
 
 		}
-	}
-}
-
-void	ft_print_grid(int **grid)
-{
-	int x, y;
-
-	for(x = 0; x < 9; x++)
-	{
-		for(y = 0; y < 9; y++)
-		{
-			ft_putchar(grid[x][y] + '0');
-			if(y != 8)
-			{
-				if(y == 2 || y == 5)
-					ft_putstr(" | ");
-				else
-					ft_putchar(' ');
-			}
-		}
-		ft_putchar('\n');
-		if(x == 2 || x == 5)
-			ft_putstr("---------------------\n");
 	}
 }

@@ -13,26 +13,6 @@
 # include <stdlib.h>
 
 /**
- * \fn void ft_putchar(char c)
- * \brief Write a char.
- *
- * \param c The character to write.
- *
- * Write the character `c` in the stdout (standard output).
- */
-void	ft_putchar(char c);
-
-/**
- * \fn void ft_putstr(char *str)
- * \brief Write a string.
- *
- * \param str A pointer to a null-terminated array of char (string).
- *
- * Write the string pointed by str in the stdout (standard output).
- */
-void	ft_putstr(char *str);
-
-/**
  * \fn int **ft_init_grid(int size)
  * \brief Initialize a double dimension array of pointer.
  *
@@ -64,26 +44,6 @@ void	ft_free_grid(int **grid, int size);
  * Set the input values contained in str correctly in the grid.
  */
 void	ft_set_grid(int **grid, char *str);
-
-/**
- * \fn void ft_print_grid(int **grid)
- * \brief Display the grid.
- *
- * \param grid The grid to be displayed.
- *
- * Displays the int contained in grid int the stdout (standard output).
- */
-void	ft_print_grid(int **grid);
-
-/**
- * \fn int ft_check_str(char *str)
- * \brief Check the entry string.
- *
- * \param str The string to be checked.
- *
- * Check if the string is valid (81 char, only numbers ans points).
- */
-int	ft_check_str(char *str);
 
 /**
  * \fn int ft_check_grid(int **grid)
