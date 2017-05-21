@@ -3,6 +3,7 @@
 
 import sys
 import tkinter as tk
+import winsound as ws
 import package.bin.solvermodule as sm
 
 class SudokuSolver(tk.Tk):
@@ -11,6 +12,8 @@ class SudokuSolver(tk.Tk):
 
         self.title("Sudoku extermivator V1")
 
+        self.musicSound = "package/sound/music.wav"
+        self.quitSound = "package/sound/quit.wav"
         self.bgImg = tk.PhotoImage(file="package/img/background.png")
         self.gridbgImg = tk.PhotoImage(file="package/img/gridbg.png")
         self.quitButtonImg = tk.PhotoImage(file="package/img/quit_button.png")
@@ -28,12 +31,11 @@ class SudokuSolver(tk.Tk):
 
         self.frames["Menu"] = Menu(parent=container, controller=self)
         self.frames["SetGrid"] = SetGrid(parent=container, controller=self)
-        self.frames["DisplayGrid"] = DisplayGrid(parent=container, controller=self)
 
         self.frames["Menu"].grid(row=0, column=0, sticky="nsew")
         self.frames["SetGrid"].grid(row=0, column=0, sticky="nsew")
-        self.frames["DisplayGrid"].grid(row=0, column=0, sticky="nsew")
 
+        ws.PlaySound(self.musicSound, ws.SND_ASYNC)
         self.showFrame("Menu")
 
     def loadNumbersImg(self):
@@ -84,6 +86,10 @@ class Menu(tk.Frame):
         self.background.place(x=0, y=0, relwidth=1, relheight=1)
         self.solveButton.pack()
         self.quitButton.pack(pady=1)
+
+    def quit(self):
+        ws.PlaySound(self.controller.quitSound, ws.SND_FILENAME)
+        self.controller.destroy()
 
 class SetGrid(tk.Frame):
     def __init__(self, parent, controller):
@@ -140,28 +146,7 @@ class SetGrid(tk.Frame):
                 self.controller.numberGrid[i][j] = 0
         self.controller.displayGrid(self.canvas)
 
-#===CLASSE PLUS UTILISEE===
-class DisplayGrid(tk.Frame):
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        self.controller = controller
-
-        self.canvas = tk.Canvas(self, bg="white", height=315, width=315)
-        self.returnButton = tk.Button(self, text="Retour au menu", command=self.reset)
-
-        self.canvas.pack()
-        self.controller.displayGrid(self.canvas)
-        self.returnButton.pack()
-
-    def reset(self):
-        for i in range(9):
-            for j in range(9):
-                self.controller.numberGrid[i][j] = 0
-        self.controller.showFrame("Menu")
-#==========================
-
 if __name__ == "__main__":
     app = SudokuSolver()
     app.mainloop()
-    app.destroy()
     sys.exit(0)
