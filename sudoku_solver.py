@@ -1,6 +1,7 @@
 #!/usr/bin/python3.5
 # -*- coding: utf-8 -*-
 
+import sys
 import tkinter as tk
 import package.bin.solvermodule as sm
 
@@ -36,12 +37,12 @@ class SudokuSolver(tk.Tk):
         self.showFrame("Menu")
 
     def loadNumbersImg(self):
-       """
-       Charge images des numéros (1-9, plus la case vide).
+        """
+        Charge images des numéros (1-9, plus la case vide).
 
-       @return: numberList
-       @rtype: list
-       """
+        @return: numberList
+        @rtype: list
+        """
         numberList = 10 * [0]
         for i in range(10):
             numberList[i] = tk.PhotoImage(file="package/img/"+str(i)+".png")
@@ -162,3 +163,5 @@ class DisplayGrid(tk.Frame):
 if __name__ == "__main__":
     app = SudokuSolver()
     app.mainloop()
+    app.destroy()
+    sys.exit(0)
